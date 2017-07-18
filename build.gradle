@@ -1,0 +1,31 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+	compile "org.springframework.boot:spring-boot-starter-security"
+	compile "org.codehaus.groovy:groovy"
+	compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE"
+	testCompile "junit:junit"
+	testCompile "org.springframework.boot:spring-boot-starter-test"
+	testCompile "org.springframework.security:spring-security-test"
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Welcome!</title>
+    </head>
+    <body>
+        <h4 th:inline="text">Hello, you're in Org <span th:text="${org}"></span></h4>
+        <p sec:authorize="hasRole('ROLE_ADMIN')">Your role is admin</p>
+        <p sec:authorize="hasRole('ROLE_USER')">Your role is user</p>
+         <a href="#" th:href="@{/}">Go to Index</a>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </body>
+</html>
